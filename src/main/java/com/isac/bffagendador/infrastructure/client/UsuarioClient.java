@@ -4,7 +4,7 @@ package com.isac.bffagendador.infrastructure.client;
 import com.isac.bffagendador.business.dto.in.EnderecoDTORequest;
 import com.isac.bffagendador.business.dto.in.TelefoneDTORequest;
 import com.isac.bffagendador.business.dto.in.UsuarioDTORequest;
-import com.isac.bffagendador.business.dto.in.UsuarioDTORequestLogin;
+import com.isac.bffagendador.business.dto.in.LoginRequestDTO;
 import com.isac.bffagendador.business.dto.out.EnderecoDTOResponse;
 import com.isac.bffagendador.business.dto.out.TelefoneDTOResponse;
 import com.isac.bffagendador.business.dto.out.UsuarioDTOResponse;
@@ -22,7 +22,7 @@ public interface UsuarioClient {
     UsuarioDTOResponse salvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO);
 
     @PostMapping("/usuario/login")
-    String login(@RequestBody UsuarioDTORequestLogin usuarioDTO);
+    String login(@RequestBody LoginRequestDTO usuarioDTO);
 
     @DeleteMapping("/usuario/{email}")
     void deletaUsuarioPorEmail(@PathVariable String email,

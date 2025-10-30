@@ -5,7 +5,7 @@ import com.isac.bffagendador.business.UsuarioService;
 import com.isac.bffagendador.business.dto.in.EnderecoDTORequest;
 import com.isac.bffagendador.business.dto.in.TelefoneDTORequest;
 import com.isac.bffagendador.business.dto.in.UsuarioDTORequest;
-import com.isac.bffagendador.business.dto.in.UsuarioDTORequestLogin;
+import com.isac.bffagendador.business.dto.in.LoginRequestDTO;
 import com.isac.bffagendador.business.dto.out.EnderecoDTOResponse;
 import com.isac.bffagendador.business.dto.out.TelefoneDTOResponse;
 import com.isac.bffagendador.business.dto.out.UsuarioDTOResponse;
@@ -39,7 +39,7 @@ public class UsuarioController {
     @ApiResponse(responseCode = "200", description = "Usuário logado")
     @ApiResponse(responseCode = "401", description = "Credenciais inválidas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public String login(@RequestBody UsuarioDTORequestLogin usuarioDTO) {
+    public String login(@RequestBody LoginRequestDTO usuarioDTO) {
 
         return usuarioService.loginUsuario(usuarioDTO);
 

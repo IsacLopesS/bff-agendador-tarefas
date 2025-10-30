@@ -2,7 +2,7 @@ package com.isac.bffagendador.business;
 import com.isac.bffagendador.business.dto.in.EnderecoDTORequest;
 import com.isac.bffagendador.business.dto.in.TelefoneDTORequest;
 import com.isac.bffagendador.business.dto.in.UsuarioDTORequest;
-import com.isac.bffagendador.business.dto.in.UsuarioDTORequestLogin;
+import com.isac.bffagendador.business.dto.in.LoginRequestDTO;
 import com.isac.bffagendador.business.dto.out.EnderecoDTOResponse;
 import com.isac.bffagendador.business.dto.out.TelefoneDTOResponse;
 import com.isac.bffagendador.business.dto.out.UsuarioDTOResponse;
@@ -19,7 +19,7 @@ public class UsuarioService {
         return usuarioClient.salvaUsuario(usuarioDTO);
     }
 
-    public String loginUsuario(UsuarioDTORequestLogin dto){
+    public String loginUsuario(LoginRequestDTO dto){
         return usuarioClient.login(dto);
     }
 
