@@ -32,12 +32,11 @@ public class CronService {
     public void buscaTarefasProximaHora(){
         String token = login(converterParaLoginDTO());
         log.info("Iniciada a busca de tarefas");
-        LocalDateTime horaFutura = LocalDateTime.now().plusMinutes(5);
+        LocalDateTime horaAtual = LocalDateTime.now();
         LocalDateTime horaFuturaMaisCinco = LocalDateTime.now().plusHours(2).plusMinutes(5);
 
 
-
-       List<TarefaDTOResponse> listaTarefas =  tarefaService.buscaTarefasAgendadasPorPeriodo(horaFutura, horaFuturaMaisCinco, token);
+       List<TarefaDTOResponse> listaTarefas =  tarefaService.buscaTarefasAgendadasPorPeriodo(horaAtual, horaFuturaMaisCinco, token);
         log.info("Tarefas encontradas "+ listaTarefas);
        listaTarefas.forEach(tarefa -> {
            emailService.enviaEmail(tarefa);
