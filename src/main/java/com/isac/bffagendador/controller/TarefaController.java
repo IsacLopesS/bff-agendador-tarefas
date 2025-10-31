@@ -32,6 +32,7 @@ public class TarefaController {
     @Operation(summary = "Cria nova tarefa", description = "Cria uma nova tarefa")
     @ApiResponse(responseCode = "200", description = "Tarefa salva com sucesso")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<TarefaDTOResponse> gravarTarefas(@RequestBody TarefaDTORequest dto,
                                                            @RequestHeader(name = "Authorization", required = false) String token){
 
@@ -43,6 +44,7 @@ public class TarefaController {
     @Operation(summary = "Busca tarefas cadastradas por período", description = "Busca tarefas cadastradas por período")
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<List<TarefaDTOResponse>> buscaListaDeTarefasPorPeriodo(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataInicial,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dataFinal,
@@ -55,6 +57,8 @@ public class TarefaController {
     @Operation(summary = "Busca tarefas cadastradas por email", description = "Busca lista de tarefas cadastradas por email")
     @ApiResponse(responseCode = "200", description = "Tarefas encontradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Email não encontrado")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<List<TarefaDTOResponse>> buscaTarefasAgendadasPorEmail(
             @RequestHeader(name = "Authorization", required = false) String token){
         return ResponseEntity.ok(tarefaService.buscaTarefasAgendadasPorEmail(token));
@@ -64,6 +68,8 @@ public class TarefaController {
     @Operation(summary = "Deleta tarefas por id", description = "Deleta tarefas cadastradas por Id")
     @ApiResponse(responseCode = "200", description = "Tarefas deletadas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrado")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<Void> deletaTarefaPorId(@RequestParam("id") String id,
                                                   @RequestHeader(name = "Authorization", required = false) String token){
          tarefaService.deletaTarefaPorId(id,token);
@@ -75,6 +81,8 @@ public class TarefaController {
     @Operation(summary = "Altera status tarefas", description = "Altera status das tarefas cadastradas")
     @ApiResponse(responseCode = "200", description = "Tstatus da tarefa alteradas")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrado")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<TarefaDTOResponse> alteraStatusNotificacao(@RequestParam("status") StatusNotificacaoEnum status,
                                                                      @RequestParam("id") String id,
                                                                      @RequestHeader(name = "Authorization", required = false) String token){
@@ -85,6 +93,8 @@ public class TarefaController {
     @Operation(summary = "Altera dados de tarefas", description = "Altera dados das tarefas cadastradas")
     @ApiResponse(responseCode = "200", description = "Tarefa alterada")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "403", description = "Tarefa id não encontrado")
+    @ApiResponse(responseCode = "401", description = "Usuario não autorizado")
     public ResponseEntity<TarefaDTOResponse> updateTarefa(@RequestBody TarefaDTORequest dto, @RequestParam String id,
                                                           @RequestHeader(name = "Authorization", required = false) String token){
         return ResponseEntity.ok(tarefaService.atualizaTarefa(dto, id,token));
