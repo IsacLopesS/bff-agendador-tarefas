@@ -6,6 +6,7 @@ import com.isac.bffagendador.business.dto.in.LoginRequestDTO;
 import com.isac.bffagendador.business.dto.out.EnderecoDTOResponse;
 import com.isac.bffagendador.business.dto.out.TelefoneDTOResponse;
 import com.isac.bffagendador.business.dto.out.UsuarioDTOResponse;
+import com.isac.bffagendador.business.dto.out.ViaCepDTOResponse;
 import com.isac.bffagendador.infrastructure.client.UsuarioClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -54,6 +55,12 @@ public class UsuarioService {
     public TelefoneDTOResponse cadastraTelefone(String token, TelefoneDTORequest dto){
         return usuarioClient.cadastraTelefone(dto,token);
     }
+
+    public ViaCepDTOResponse buscarDadosEndereco(String cep){
+        return usuarioClient.buscarDadosCep(cep);
+    }
+
+
 
 
 

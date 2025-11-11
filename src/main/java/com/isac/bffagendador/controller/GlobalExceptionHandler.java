@@ -2,6 +2,7 @@ package com.isac.bffagendador.controller;
 
 
 import com.isac.bffagendador.infrastructure.exceptions.ConflictException;
+import com.isac.bffagendador.infrastructure.exceptions.IllegalArgumentException;
 import com.isac.bffagendador.infrastructure.exceptions.ResourceNotFoundException;
 import com.isac.bffagendador.infrastructure.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
@@ -26,6 +27,12 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleUnauthorizedException( UnauthorizedException exception){
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handlerIllegalArgumentException(IllegalArgumentException ex){
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
 
 
 }
