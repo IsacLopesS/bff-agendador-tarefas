@@ -15,3 +15,18 @@ A imagem abaixo mostra os quatro microsserviços desenvolveidos no projeto:
 
 # Vídeo do projeto em execução
 https://drive.google.com/file/d/1q-7oqfEYYKiznK3-GTxEo0Hj_w7wFRh_/view?usp=sharing
+
+
+# Processo de desenvolvimento
+O projeto foi desenvolvido simulando um ambiente real de desenvolvimento, seguindo boas práticas adotadas em equipes de tecnologia:
+- Metodologia Kanban para organização e evolução das features
+- Versionamento com Git seguindo fluxo de branches:
+  - feature/* para desenvolvimento de novas funcionalidades
+  - Pull Request para develop após testes
+  - Merge final em master
+- Processo de CI/CD conceitual, garantindo:
+  - Código testado antes do merge
+  - Histórico limpo e organizado
+  - Facilidade de manutenção e evolução
+
+Esse fluxo foi adotado com o objetivo de reproduzir a dinâmica de times reais, mesmo sendo um projeto individual.
