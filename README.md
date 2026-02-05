@@ -1,0 +1,17 @@
+# Documentação do projeto
+
+A imagem abaixo mostra os quatro microsserviços desenvolveidos no projeto:
+- microsserviço usuario: responsável pelo CRUD de usuários. Banco de dados utilizado: PostgreSQL
+  - acesse o repositório: https://github.com/IsacLopesS/usuario 
+- microsserviço agendador-tarefas:  gerencia as tarefas dos usuarios - cria tarefa, atualiza, e exclui. Banco de dados utilizado: MongoDB
+  - acesse o repositório: https://github.com/IsacLopesS/agendador-tarefas 
+- microsserviço notificação: responsável por notificar o usuário da tarefa por email, com 1h de antecedência. (Requisições via CRON disparado min a min)
+  - acesseo repositório: https://github.com/IsacLopesS/notificacao   
+- microsserviço bff: por onde o frontend acessa os outros microsserviços. O bff recebe a requisição do frontend e direciona para os outros microsserviços.
+
+
+![Arquitetura do Sistema](diagrama_microsservicos.png)
+
+
+# Vídeo do projeto em execução
+https://drive.google.com/file/d/1q-7oqfEYYKiznK3-GTxEo0Hj_w7wFRh_/view?usp=sharing
