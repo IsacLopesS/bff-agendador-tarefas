@@ -11,3 +11,7 @@ A imagem abaixo mostra os quatro microsserviços desenvolveidos no projeto:
 
 
 ![Arquitetura do Sistema](diagrama_microsservicos.png)
+
+
+# Vídeo do projeto em execução
+https://drive.google.com/file/d/1q-7oqfEYYKiznK3-GTxEo0Hj_w7wFRh_/view?usp=sharing
